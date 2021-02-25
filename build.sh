@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build -t stellirin/vscode-container .
+docker build -t stellirin/vscode-container:latest .

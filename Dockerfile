@@ -5,7 +5,7 @@ ARG USERNAME=vscode
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
-ARG SCRIPT_VER=v0.155.0
+ARG SCRIPT_VER=v0.161.0
 ARG SCRIPT_ROOT=https://raw.githubusercontent.com/microsoft/vscode-dev-containers/$SCRIPT_VER/script-library
 
 # Options: common-debian.sh
@@ -19,7 +19,7 @@ ARG SOURCE_SOCKET=/var/run/docker-host.sock
 ARG TARGET_SOCKET=/var/run/docker.sock
 
 # Options: go-debian.sh
-ARG TARGET_GO_VERSION=1.15.6
+ARG TARGET_GO_VERSION=1.16
 ARG TARGET_GOROOT=/usr/local/go
 ARG TARGET_GOPATH=/go
 ARG UPDATE_RC=true
@@ -29,7 +29,7 @@ ARG INSTALL_GO_TOOLS=false
 ARG CLI_VERSION=latest
 
 # Options: terraform-debian.sh
-ARG TERRAFORM_VERSION=0.13.5
+ARG TERRAFORM_VERSION=0.14.7
 ARG TFLINT_VERSION=latest
 
 RUN apt-get update \
