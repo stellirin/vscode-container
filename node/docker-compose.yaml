@@ -2,6 +2,7 @@ version: "3.8"
 
 volumes:
   extensions:
+  node_modules:
 
 services:
   vscode:
@@ -10,18 +11,11 @@ services:
       dockerfile: Dockerfile
     user: vscode
     environment:
-      GITHUB_TOKEN:
-      GOOGLE_APPLICATION_CREDENTIALS: "/home/vscode/.config/gcloud/application_default_credentials.json"
       TZ: "Europe/Prague"
-      VAULT_TOKEN:
     volumes:
       - type: bind
         source: ../
         target: /workspace
-      # Shared GOPATH to reduce rebuild/redownload
-      - type: bind
-        source: ~/go-vscode
-        target: /go
       # According to docs it is not safe to share the extensions folder
       - type: volume
         source: extensions
@@ -47,3 +41,11 @@ services:
       - type: bind
         source: ~/.p10k.zsh
         target: /home/vscode/.p10k.zsh
+
+      # Node extras
+      - type: bind
+        source: ~/.npmrc
+        target: /home/vscode/.npmrc
+      - type: volume
+        source: node_modules
+        target: /workspace/node_modules

@@ -1,0 +1,20 @@
+// For format details, see https://aka.ms/vscode-remote/devcontainer.json
+{
+    "dockerComposeFile": [
+        "docker-compose.yaml"
+    ],
+    "workspaceFolder": "/workspace",
+    "service": "vscode",
+    "name": "NodeJS",
+    "remoteUser": "vscode",
+    "remoteEnv": {
+        "PATH": "${containerEnv:PATH}:/workspace/node_modules/.bin",
+    },
+    "settings": {
+        "terminal.integrated.shell.linux": "/usr/bin/zsh",
+    },
+    "extensions": [
+        "ms-azuretools.vscode-docker",
+        "esbenp.prettier-vscode",
+    ]
+}

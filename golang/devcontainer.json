@@ -5,7 +5,7 @@
     ],
     "workspaceFolder": "/workspace",
     "service": "vscode",
-    "name": "EXAMPLE",
+    "name": "Go",
     "remoteUser": "vscode",
     "settings": {
         "terminal.integrated.shell.linux": "/usr/bin/zsh",
@@ -14,11 +14,7 @@
         "go.goroot": "/usr/local/go"
     },
     "extensions": [
-        "golang.Go",
-        "hashicorp.terraform",
-        "ms-kubernetes-tools.vscode-kubernetes-tools",
         "ms-azuretools.vscode-docker",
-        "github.vscode-pull-request-github",
-        "plex.vscode-protolint"
+        "golang.Go",
     ]
 }
