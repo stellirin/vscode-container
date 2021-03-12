@@ -24,3 +24,8 @@ RUN apt-get update \
     python3-requests \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
+
+RUN wget https://storage.googleapis.com/oauth2l/latest/linux_amd64.tgz \
+    && tar zxvf linux_amd64.tgz \
+    && mv linux_amd64/oauth2l /usr/local/bin/ \
+    && rm -rf linux_amd64 linux_amd64.tgz

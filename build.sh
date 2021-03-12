@@ -2,6 +2,8 @@
 
 SCRIPT_VER=v0.162.0
 
+docker pull ubuntu:focal
+
 docker build \
     --file=core/Dockerfile \
     --build-arg=SCRIPT_VER=${SCRIPT_VER} \
