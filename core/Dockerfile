@@ -15,7 +15,7 @@ ARG ENABLE_NONROOT_DOCKER=true
 ARG SOURCE_SOCKET=/var/run/docker-host.sock
 ARG TARGET_SOCKET=/var/run/docker.sock
 
-ARG SCRIPT_VER=v0.162.0
+ARG SCRIPT_VER
 ARG SCRIPT_ROOT=https://raw.githubusercontent.com/microsoft/vscode-dev-containers/$SCRIPT_VER/script-library
 
 RUN apt-get update \
@@ -25,6 +25,8 @@ RUN apt-get update \
     && bash -c "$(curl -fsSL "${SCRIPT_ROOT}/docker-debian.sh")" -- "${ENABLE_NONROOT_DOCKER}" "${SOURCE_SOCKET}" "${TARGET_SOCKET}" "${USERNAME}" \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/* \
+    && mkdir -p /home/vscode/.config \
+    && chown -R vscode:vscode /home/vscode/.config \
     && mkdir -p /home/vscode/.vscode-server/extensions \
     && chown -R vscode:vscode /home/vscode/.vscode-server
 

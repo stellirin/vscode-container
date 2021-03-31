@@ -1,0 +1,24 @@
+// For format details, see https://aka.ms/vscode-remote/devcontainer.json
+{
+    "dockerComposeFile": [
+        "docker-compose.yaml"
+    ],
+    "workspaceFolder": "/workspace",
+    "service": "vscode",
+    "name": "Go",
+    "remoteUser": "vscode",
+    "remoteEnv": {
+        "PATH": "${containerEnv:PATH}:/workspace/node_modules/.bin",
+    },
+    "settings": {
+        "terminal.integrated.shell.linux": "/usr/bin/zsh",
+        "go.useLanguageServer": true,
+        "go.gopath": "/go",
+        "go.goroot": "/usr/local/go"
+    },
+    "extensions": [
+        "golang.Go",
+        "esbenp.prettier-vscode",
+        "ms-azuretools.vscode-docker",
+    ]
+}

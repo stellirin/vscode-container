@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SCRIPT_VER=v0.162.0
+SCRIPT_VER=v0.166.0
 
 docker pull ubuntu:focal
 
@@ -10,22 +10,28 @@ docker build \
     --tag=ghcr.io/stellirin/vscode-container:core .
 
 docker build \
-    --file=node/Dockerfile \
-    --build-arg=SCRIPT_VER=${SCRIPT_VER} \
-    --build-arg=NODE_VERSION=12.18.2 \
-    --tag=ghcr.io/stellirin/vscode-container:node-12.18.2 .
-
-docker build \
-    --file=node/Dockerfile \
-    --build-arg=SCRIPT_VER=${SCRIPT_VER} \
-    --build-arg=NODE_VERSION=14.15.1 \
-    --tag=ghcr.io/stellirin/vscode-container:node-14.15.1 .
-
-docker build \
     --file=golang/Dockerfile \
     --build-arg=SCRIPT_VER=${SCRIPT_VER} \
     --build-arg=TARGET_GO_VERSION=1.16.2 \
     --tag=ghcr.io/stellirin/vscode-container:golang-1.16 .
+
+docker build \
+    --file=node/Dockerfile \
+    --build-arg=SCRIPT_VER=${SCRIPT_VER} \
+    --build-arg=NODE_VERSION=12.18.2 \
+    --tag=ghcr.io/stellirin/vscode-container:node-12 .
+
+docker build \
+    --file=node/Dockerfile \
+    --build-arg=SCRIPT_VER=${SCRIPT_VER} \
+    --build-arg=NODE_VERSION=14.16.0 \
+    --tag=ghcr.io/stellirin/vscode-container:node-14 .
+
+docker build \
+    --file=golang+node/Dockerfile \
+    --build-arg=SCRIPT_VER=${SCRIPT_VER} \
+    --build-arg=NODE_VERSION=14.16.0 \
+    --tag=ghcr.io/stellirin/vscode-container:golang-1.16_node-14 .
 
 docker build \
     --file=terraform/Dockerfile \
