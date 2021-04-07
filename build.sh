@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SCRIPT_VER=v0.166.0
+SCRIPT_VER=v0.166.1
 
 docker pull ubuntu:focal
 
@@ -12,7 +12,7 @@ docker build \
 docker build \
     --file=golang/Dockerfile \
     --build-arg=SCRIPT_VER=${SCRIPT_VER} \
-    --build-arg=TARGET_GO_VERSION=1.16.2 \
+    --build-arg=TARGET_GO_VERSION=1.16.3 \
     --tag=ghcr.io/stellirin/vscode-container:golang-1.16 .
 
 docker build \
