@@ -19,3 +19,10 @@ RUN apt-get update \
     && bash -c "$(curl -fsSL "${SCRIPT_ROOT}/go-debian.sh")" -- "${TARGET_GO_VERSION}" "${TARGET_GOROOT}" "${TARGET_GOPATH}" "${USERNAME}" "${UPDATE_RC}" "${INSTALL_GO_TOOLS}" \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
+
+ARG TINY_GO_VERSION=0.18.0
+
+RUN apt-get update \
+    && wget https://github.com/tinygo-org/tinygo/releases/download/v${TINY_GO_VERSION}/tinygo_${TINY_GO_VERSION}_amd64.deb \
+    && dpkg -i tinygo_${TINY_GO_VERSION}_amd64.deb \
+    && rm -f tinygo_${TINY_GO_VERSION}_amd64.deb 
