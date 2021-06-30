@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SCRIPT_VER=v0.181.0
+SCRIPT_VER=v0.184.0
 
 docker pull ubuntu:focal
 
@@ -18,13 +18,13 @@ docker build \
 docker build \
     --file=node/Dockerfile \
     --build-arg=SCRIPT_VER=${SCRIPT_VER} \
-    --build-arg=NODE_VERSION=14.16.1 \
+    --build-arg=NODE_VERSION=14.17.1 \
     --tag=ghcr.io/stellirin/vscode-container:node-14 .
 
 docker build \
     --file=golang+node/Dockerfile \
     --build-arg=SCRIPT_VER=${SCRIPT_VER} \
-    --build-arg=NODE_VERSION=14.16.1 \
+    --build-arg=NODE_VERSION=14.17.1 \
     --tag=ghcr.io/stellirin/vscode-container:golang-1.16_node-14 .
 
 docker build \
