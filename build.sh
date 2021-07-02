@@ -28,13 +28,18 @@ docker build \
     --tag=ghcr.io/stellirin/vscode-container:golang-1.16_node-14 .
 
 docker build \
-    --file=terraform/Dockerfile \
-    --build-arg=SCRIPT_VER=${SCRIPT_VER} \
-    --build-arg=TERRAFORM_VERSION=0.14.7 \
-    --tag=ghcr.io/stellirin/vscode-container:terraform-0.14.7 .
-
-docker build \
     --file=java/Dockerfile \
     --build-arg=SCRIPT_VER=${SCRIPT_VER} \
     --build-arg=JAVA_VERSION=8.0.282.j9-adpt \
     --tag=ghcr.io/stellirin/vscode-container:java-8 .
+
+docker build \
+    --file=rust/Dockerfile \
+    --build-arg=SCRIPT_VER=${SCRIPT_VER} \
+    --tag=ghcr.io/stellirin/vscode-container:rust .
+
+docker build \
+    --file=terraform/Dockerfile \
+    --build-arg=SCRIPT_VER=${SCRIPT_VER} \
+    --build-arg=TERRAFORM_VERSION=0.14.7 \
+    --tag=ghcr.io/stellirin/vscode-container:terraform-0.14.7 .
