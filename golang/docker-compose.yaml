@@ -1,8 +1,13 @@
 version: "3.8"
 
+networks:
+  default:
+    name: devcontainer
+
 volumes:
   extensions:
   gopath:
+    name: devcontainer_gopath
 
 services:
   vscode:
