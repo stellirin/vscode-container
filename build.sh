@@ -41,5 +41,5 @@ docker build \
 docker build \
     --file=terraform/Dockerfile \
     --build-arg=SCRIPT_VER=${SCRIPT_VER} \
-    --build-arg=TERRAFORM_VERSION=0.14.7 \
-    --tag=ghcr.io/stellirin/vscode-container:terraform-0.14.7 .
+    --build-arg=TERRAFORM_VERSION=1.0.1 \
+    --tag=ghcr.io/stellirin/vscode-container:terraform-1.0.1 .

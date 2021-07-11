@@ -12,5 +12,8 @@
     },
     "extensions": [
         "ms-azuretools.vscode-docker",
+        "rust-lang.rust",
+        "bungcip.better-toml",
+        "vadimcn.vscode-lldb",
     ]
 }
