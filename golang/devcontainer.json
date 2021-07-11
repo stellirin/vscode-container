@@ -8,7 +8,7 @@
     "name": "Go",
     "remoteUser": "vscode",
     "settings": {
-        "terminal.integrated.shell.linux": "/usr/bin/zsh",
+        "terminal.integrated.defaultProfile.linux": "zsh",
         "go.useLanguageServer": true,
         "go.gopath": "/go",
         "go.goroot": "/usr/local/go"

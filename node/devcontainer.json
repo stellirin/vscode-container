@@ -11,7 +11,7 @@
         "PATH": "${containerEnv:PATH}:/workspace/node_modules/.bin",
     },
     "settings": {
-        "terminal.integrated.shell.linux": "/usr/bin/zsh",
+        "terminal.integrated.defaultProfile.linux": "zsh",
     },
     "extensions": [
         "ms-azuretools.vscode-docker",
