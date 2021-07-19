@@ -6,6 +6,8 @@ networks:
 
 volumes:
   extensions:
+  gopath:
+    name: devcontainer_gopath
   node_modules:
 
 services:
@@ -15,7 +17,9 @@ services:
       dockerfile: Dockerfile
     user: vscode
     environment:
+      GOOGLE_APPLICATION_CREDENTIALS: "/home/vscode/.config/gcloud/application_default_credentials.json"
       TZ: "Europe/Prague"
+      VAULT_TOKEN:
     volumes:
       - type: bind
         source: ../
@@ -45,6 +49,11 @@ services:
       - type: bind
         source: ~/.p10k.zsh
         target: /home/vscode/.p10k.zsh
+
+      # Shared GOPATH to reduce rebuild/redownload
+      - type: volume
+        source: gopath
+        target: /go
 
       # Node extras
       - type: bind
